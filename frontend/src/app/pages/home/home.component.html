@@ -1,0 +1,100 @@
+<div class="container pt-2">
+  <mat-card [style.backgroundColor]="'#7b1fa2'">
+    <mat-card-header>
+      <mat-card-title>
+        <h1>{{ 'pages.home.title' | translate }}</h1>
+      </mat-card-title>
+
+      <mat-card-subtitle>
+        <span>{{ 'pages.home.official_source_disclaimer' | translate }}</span>
+      </mat-card-subtitle>
+
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="container">
+        <a style="text-decoration: none; color: white;" href="https://lernsax.de" class="w-100"
+          mat-raised-button>{{ 'pages.home.link_title' | translate }}</a>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="mt-2">
+    <mat-card-header>
+      <mat-card-title>
+        <div class="d-inline-flex">
+          <h2 class="d-flex mr-2">{{ 'pages.home.current_state' | translate }}</h2>
+          <mat-chip-list>
+            <mat-chip *ngIf="!isOffline && loginEnabled === true" color="accent" selected>
+              {{  'home.state.online' | translate }}</mat-chip>
+            <mat-chip *ngIf="isOffline" color="warn" selected>
+              {{ 'home.state.offline' | translate }}</mat-chip>
+            <mat-chip *ngIf="loginEnabled !== undefined && loginEnabled === false && !isOffline" color="warn" selected>
+              {{ 'home.state.no_login' | translate }}</mat-chip>
+          </mat-chip-list>
+        </div>
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="w-100 d-inline-flex justify-content-center">
+
+        <div class="d-flex">
+          <mat-spinner *ngIf="isOffline === undefined"></mat-spinner>
+
+          <mat-icon class="w-100" style="font-size: 100px;" *ngIf="isOffline !== undefined"
+            [color]="isOffline || !loginEnabled ? 'warn' : 'accent'">
+            {{ isOffline || !loginEnabled ? 'highlight_off' : 'check_circle_outline' }}
+          </mat-icon>
+        </div>
+      </div>
+
+      <div class="w-100 d-inline-flex mt-3">
+        <div class="container" *ngIf="lastUpdate">
+          <span>{{ 'pages.home.last_updated' | translate }} {{ lastUpdate.toLocaleString() }}</span>
+        </div>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="mt-2">
+    <button class="w-100 h-100" (click)="reload()" color="primary"
+      mat-raised-button>{{ 'pages.home.buttons.reload' |translate }}</button>
+    <p mat-card-subtitle class="pt-3">{{ 'pages.home.reload_explanation' | translate }}</p>
+  </mat-card>
+
+  <mat-card class="mt-2">
+    <mat-card-header>
+      <mat-card-title>{{ 'pages.home.error_history.title' | translate }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-tab-group dynamicHeight="true" removable="true" (selectedIndexChange)="tabSelectionHandler($event)">
+        <mat-tab [label]="'pages.home.error_history.oneDay' | translate">
+          <app-infinite-list [listItems]="lastDay"></app-infinite-list>
+        </mat-tab>
+        <mat-tab [label]="'pages.home.error_history.last7Days' | translate">
+          <app-infinite-list [listItems]="last7Days"></app-infinite-list>
+        </mat-tab>
+        <mat-tab [label]="'pages.home.error_history.last30Days' | translate">
+          <app-infinite-list [listItems]="last30Days"></app-infinite-list>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="mt-2">
+    <mat-card-header>
+      <mat-card-title>
+        <h2>{{ 'pages.home.short_description.title' | translate }}</h2>
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="container">
+        <p>{{ 'pages.home.short_description.first' | translate }}</p>
+        <p>{{ 'pages.home.short_description.second' | translate }}</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

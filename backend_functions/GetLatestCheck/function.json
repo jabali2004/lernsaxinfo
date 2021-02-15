@@ -1,0 +1,29 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "in",
+      "name": "latestCheck",
+      "databaseName": "lernsaxcheck",
+      "collectionName": "checks",
+      "connectionStringSetting": "lernsaxcheck_DOCUMENTDB",
+      "partitionKey": "checkId",
+      "sqlQuery": "SELECT * from c WHERE c.firstChecked != c.lastChecked ORDER BY c.firstChecked DESC OFFSET 0 LIMIT 1"
+    }
+  ],
+  "scriptFile": "../dist/GetLatestCheck/index.js"
+}

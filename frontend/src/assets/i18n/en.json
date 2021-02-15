@@ -1,0 +1,65 @@
+{
+	"cookies": {
+		"accept": "Accept",
+		"message": "This site uses cookies to improve the user experience and analyze traffic to this website. You consent to their use in accordance with our Privacy Policy when you continue to use this website."
+	},
+	"header": {
+		"nav": {
+			"home": "Home",
+			"imprint": "Imprint",
+			"privacy": "Privacy",
+			"upcoming_features": "Upcoming Features"
+		},
+		"title": "LernSaxInfo"
+	},
+	"home": {
+		"state": {
+			"no_login": "No login",
+			"offline": "Offline",
+			"online": "Online"
+		}
+	},
+	"pages": {
+		"home": {
+			"buttons": {
+				"reload": "Reload"
+			},
+			"current_state": "Current state:",
+			"error_history": {
+				"last30Days": "30 days",
+				"last7Days": "7 days",
+				"list_item": {
+					"from": "From:",
+					"minutes": "minutes",
+					"single_error": "up to 3 minutes",
+					"time_range": "Time range:",
+					"to": "To:",
+					"type": {
+						"login_disabled": "Type: login deactivated",
+						"offline": "Type: not reachable"
+					}
+				},
+				"no_items": "No known errors occurred during this period.",
+				"oneDay": "One day",
+				"title": "Error history"
+			},
+			"last_updated": "Last updated:",
+			"link_title": "LernSax Portal",
+			"official_source_disclaimer": "This is not an official status page of the LernSax portal.",
+			"reload_explanation": "An update takes place automatically.",
+			"short_description": {
+				"first": "The current status of the LernSax portal is queried every three minutes.",
+				"second": "The collected data should be considered as estimates, since an interval of 3 minutes does not allow for more accurate data.",
+				"title": "Description"
+			},
+			"title": "LernSax Status Information"
+		},
+		"not-found": {
+			"warning": "Page could not be found!"
+		},
+		"upcoming-features": {
+			"subheader": "These functionalities are currently under consideration.",
+			"title": "Upcoming Features"
+		}
+	}
+}

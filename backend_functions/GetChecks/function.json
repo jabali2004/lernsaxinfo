@@ -1,0 +1,29 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "in",
+      "name": "checks",
+      "databaseName": "lernsaxcheck",
+      "collectionName": "checks",
+      "connectionStringSetting": "lernsaxcheck_DOCUMENTDB",
+      "sqlQuery": "SELECT * FROM c WHERE (c.firstChecked >= {fromDate} AND c.lastChecked <= {toDate}) ORDER BY c.firstChecked DESC OFFSET 0 LIMIT 10000",
+      "partitionKey": "/checksPartition"
+    }
+  ],
+  "scriptFile": "../dist/GetChecks/index.js"
+}

@@ -1,0 +1,53 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>{{ 'header.title' | translate }}</span>
+    <span class="pl-3"></span>
+    <div fxShow="true" fxHide.lt-md>
+      <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+      <button routerLink="/pages/home" mat-button>{{ 'header.nav.home' | translate }}</button>
+      <button routerLink="/pages/upcoming-features" mat-button>{{ 'header.nav.upcoming_features' | translate }}</button>
+      <button routerLink="/pages/imprint" mat-button>{{ 'header.nav.imprint' | translate }}</button>
+      <button routerLink="/pages/privacy" mat-button>{{ 'header.nav.privacy' | translate }}</button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav style="width:50vw;">
+    <mat-nav-list>
+      <div class="w-100 d-inline-flex mt-2">
+        <button routerLink="/pages/home" class="d-flex ml-2 mr-2 flex-fill" color="primary"
+          mat-flat-button>{{ 'header.nav.home' | translate }}</button>
+      </div>
+
+      <div class="w-100 d-inline-flex mt-2">
+        <button routerLink="/pages/upcoming-features" class="d-flex ml-2 mr-2 flex-fill" color="primary"
+          mat-flat-button>{{ 'header.nav.upcoming_features' | translate }}</button>
+      </div>
+
+      <div class="w-100 d-inline-flex mt-2">
+        <button routerLink="/pages/imprint" class="d-flex ml-2 mr-2 flex-fill" color="primary"
+          mat-flat-button>{{ 'header.nav.imprint' | translate }}</button>
+      </div>
+
+      <div class="w-100 d-inline-flex mt-2">
+        <button routerLink="/pages/privacy" class="d-flex ml-2 mr-2 flex-fill" color="primary"
+          mat-flat-button>{{ 'header.nav.privacy' | translate }}</button>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content fxFlexFill class="pb-3">
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+
+    <button class="scroll-to-top" mat-fab color="primary" *ngIf="isShow" (click)="gotoTop()">
+      <mat-icon>north</mat-icon>
+    </button>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

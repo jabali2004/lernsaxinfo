@@ -1,0 +1,41 @@
+{
+  "bindings": [
+    {
+      "name": "myTimer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 */3 * * * *"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "out",
+      "name": "check",
+      "databaseName": "lernsaxcheck",
+      "collectionName": "checks",
+      "createIfNotExists": "true",
+      "connectionStringSetting": "lernsaxcheck_DOCUMENTDB",
+      "partitionKey": "checkId"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "out",
+      "name": "raw",
+      "databaseName": "lernsaxcheck",
+      "collectionName": "raw_checks",
+      "createIfNotExists": "true",
+      "connectionStringSetting": "lernsaxcheck_DOCUMENTDB",
+      "partitionKey": "checkId"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "in",
+      "name": "lastCheck",
+      "databaseName": "lernsaxcheck",
+      "collectionName": "checks",
+      "sqlQuery": "SELECT * from c ORDER BY c.firstChecked DESC OFFSET 0 LIMIT 1",
+      "connectionStringSetting": "lernsaxcheck_DOCUMENTDB",
+      "partitionKey": "checkId"
+    }
+  ],
+  "scriptFile": "../dist/CheckBasicState/index.js"
+}

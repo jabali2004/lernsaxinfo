@@ -1,0 +1,31 @@
+<cdk-virtual-scroll-viewport itemSize="auto" class="content" style="max-height: 20rem;">
+  <div *ngIf="listItems && listItems.length === 0" class="container pt-2">
+    {{ 'pages.home.error_history.no_items' | translate }}</div>
+  <div class="spinner-item">
+    <mat-progress-spinner *ngIf="!listItems || listItems.length < 0" [mode]="'indeterminate'" [diameter]="50">
+    </mat-progress-spinner>
+  </div>
+  <mat-list *ngIf="listItems">
+    <ng-container *cdkVirtualFor="let item of listItems">
+      <mat-list-item>
+        <h3 matLine *ngIf="item.isOffline">{{ 'pages.home.error_history.list_item.type.offline' | translate }}</h3>
+        <h3 matLine *ngIf="!item.loginEnabled && !item.isOffline">
+          {{ 'pages.home.error_history.list_item.type.login_disabled' | translate }}</h3>
+        <p matLine>
+          <span>{{ 'pages.home.error_history.list_item.from' | translate }}
+            {{ item.firstChecked | date: 'short'}} {{ 'pages.home.error_history.list_item.to' | translate }}
+            {{ item.lastChecked | date: 'short' }}</span>
+        </p>
+        <p matLine *ngFor="let downtime of [calcDowntime(item.firstChecked, item.lastChecked)]">
+          <span *ngIf="downtime > 0">
+            {{ downtime | number: '1.0-0' }}
+            {{ 'pages.home.error_history.list_item.minutes' | translate }} </span>
+          <span *ngIf="downtime == 0">
+            {{ 'pages.home.error_history.list_item.single_error' | translate }}
+          </span>
+        </p>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </ng-container>
+  </mat-list>
+</cdk-virtual-scroll-viewport>
