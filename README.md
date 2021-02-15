@@ -60,8 +60,6 @@ lernsaxinfo – [@lernsaxinfo](https://twitter.com/lernsaxinfo) – lernsaxinfo@
 
 Verteilt unter der Apache 2.0 Lizenz. Siehe ``LICENSE`` für weitere Informationen.
 
-[https://github.com/yourname/github-link](https://github.com/dbader/)
-
 ## Mitwirken
 
 1. Fork it (<https://github.com/yourname/yourproject/fork>)
