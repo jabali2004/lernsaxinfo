@@ -13,6 +13,7 @@ Es werden folgende Technologien genutzt:
 
 - Angular
   - Angular material
+  - NgBootstrap
 - Azure cloud functions (NodeJS)
   - Puppeteer
   - cosmosDB
@@ -40,7 +41,30 @@ npm install -g azure-functions-core-tools@3
 npm install -g @angular/cli
 ````
 
-*Weitere Informationen kommen noch.*
+### /frontend
+
+Quickstart:
+
+```` sh
+npm install
+npm start
+````
+
+Beim Frontend kommt die Angular Prerender Funktion zum Einsatz.
+
+```` sh
+
+npm run prerender # Für den lokalen Test
+
+````
+
+### /backend_functions
+
+*Weitere Infos folgen.*
+
+### /worker_functions
+
+*Weitere Infos folgen.*
 
 <!-- TODO: Detailierte Schritt für Schritt Anleitung hinzufügen. -->
 
