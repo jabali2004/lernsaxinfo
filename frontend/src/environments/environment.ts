@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  functionEndpoint: 'http://localhost:4200/api/',
+  functionEndpoint: 'https://lernsaxinfo-dev.azurewebsites.net',
+  // functionEndpoint: 'http://localhost:4200/api/',
   instrumentationKey: ''
 };
 
