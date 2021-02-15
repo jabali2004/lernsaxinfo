@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "LernSaxCheck": {
+    "LernSaxInfo": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/LernSaxCheck/browser",
+            "outputPath": "dist/LernSaxInfo/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -70,19 +70,19 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "LernSaxCheck:build",
+            "browserTarget": "LernSaxInfo:build",
             "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "LernSaxCheck:build:production"
+              "browserTarget": "LernSaxInfo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "LernSaxCheck:build"
+            "browserTarget": "LernSaxInfo:build"
           }
         },
         "test": {
@@ -120,18 +120,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "LernSaxCheck:serve"
+            "devServerTarget": "LernSaxInfo:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "LernSaxCheck:serve:production"
+              "devServerTarget": "LernSaxInfo:serve:production"
             }
           }
         },
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/LernSaxCheck/server",
+            "outputPath": "dist/LernSaxInfo/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json"
           },
@@ -151,21 +151,21 @@
         "serve-ssr": {
           "builder": "@nguniversal/builders:ssr-dev-server",
           "options": {
-            "browserTarget": "LernSaxCheck:build",
-            "serverTarget": "LernSaxCheck:server"
+            "browserTarget": "LernSaxInfo:build",
+            "serverTarget": "LernSaxInfo:server"
           },
           "configurations": {
             "production": {
-              "browserTarget": "LernSaxCheck:build:production",
-              "serverTarget": "LernSaxCheck:server:production"
+              "browserTarget": "LernSaxInfo:build:production",
+              "serverTarget": "LernSaxInfo:server:production"
             }
           }
         },
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
           "options": {
-            "browserTarget": "LernSaxCheck:build:production",
-            "serverTarget": "LernSaxCheck:server:production",
+            "browserTarget": "LernSaxInfo:build:production",
+            "serverTarget": "LernSaxInfo:server:production",
             "routes": [
               "/pages/home",
               "/pages/imprint",
@@ -179,5 +179,5 @@
       }
     }
   },
-  "defaultProject": "LernSaxCheck"
+  "defaultProject": "LernSaxInfo"
 }

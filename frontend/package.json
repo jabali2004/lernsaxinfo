@@ -1,6 +1,6 @@
 {
   "name": "lern-sax-check",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -10,10 +10,10 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "extract-translations": "ngx-translate-extract --input ./src --output ./src/assets/i18n/en.json --output ./src/assets/i18n/de.json --format namespaced-json  --marker . --sort",
-    "dev:ssr": "ng run LernSaxCheck:serve-ssr",
-    "serve:ssr": "node dist/LernSaxCheck/server/main.js",
-    "build:ssr": "ng build --prod && ng run LernSaxCheck:server:production",
-    "prerender": "ng run LernSaxCheck:prerender"
+    "dev:ssr": "ng run LernSaxInfo:serve-ssr",
+    "serve:ssr": "node dist/LernSaxInfo/server/main.js",
+    "build:ssr": "ng build --prod && ng run LernSaxInfo:server:production",
+    "prerender": "ng run LernSaxInfo:prerender"
   },
   "private": true,
   "dependencies": {

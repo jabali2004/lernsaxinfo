@@ -22,7 +22,7 @@ export function universalLoader(): TranslateLoader {
         observer.next(
           JSON.parse(
             readFileSync(
-              `./dist/LernSaxCheck/browser/assets/i18n/${lang}.json`,
+              `./dist/LernSaxInfo/browser/assets/i18n/${lang}.json`,
               'utf8'
             )
           )
