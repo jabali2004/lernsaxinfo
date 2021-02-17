@@ -28,6 +28,7 @@
 			"error_history": {
 				"last30Days": "30 days",
 				"last7Days": "7 days",
+				"lastYear": "1 year",
 				"list_item": {
 					"from": "From:",
 					"minutes": "minutes",

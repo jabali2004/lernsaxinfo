@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public last30Days: ICheck[] | null = null;
   public last7Days: ICheck[] | null = null;
   public lastDay: ICheck[] | null = null;
+  public lastYear: ICheck[] | null = null;
 
   constructor(
     private statusCheckService: StatusCheckService,
@@ -61,6 +62,10 @@ export class HomeComponent implements OnInit, OnDestroy {
 
       case 2:
         this.last30Days = await this.fetchData(30);
+        break;
+
+      case 3:
+        this.lastYear = await this.fetchData(365);
         break;
 
       default:

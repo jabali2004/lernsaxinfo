@@ -79,6 +79,9 @@
         <mat-tab [label]="'pages.home.error_history.last30Days' | translate">
           <app-infinite-list [listItems]="last30Days"></app-infinite-list>
         </mat-tab>
+        <mat-tab [label]="'pages.home.error_history.lastYear' | translate">
+          <app-infinite-list [listItems]="lastYear"></app-infinite-list>
+        </mat-tab>
       </mat-tab-group>
     </mat-card-content>
   </mat-card>
