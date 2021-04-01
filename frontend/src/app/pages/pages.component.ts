@@ -3,6 +3,14 @@ import { HostListener } from '@angular/core';
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
+import {
+  NgcCookieConsentConfig,
+  NgcCookieConsentModule,
+  NgcCookieConsentService
+} from 'ngx-cookieconsent';
+import { timeoutWith } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+import { AnalyticsService } from '../services/analytics.service';
 import { ApplicationInsightsService } from '../services/application-insights.service';
 
 @Component({
@@ -18,23 +26,39 @@ export class PagesComponent implements OnInit {
     private acceptCookies: MatSnackBar,
     private translate: TranslateService,
     private applicationInsightsService: ApplicationInsightsService,
+    private ccService: NgcCookieConsentService,
+    private analyticsService: AnalyticsService,
     @Inject(PLATFORM_ID) public platformId: string
-  ) {}
+  ) {
+    this.translate
+      .get([
+        'cookie.header',
+        'cookie.message',
+        'cookie.dismiss',
+        'cookie.allow',
+        'cookie.deny',
+        'cookie.link',
+        'cookie.policy'
+      ])
+      .subscribe((data) => {
+        const content = this.ccService.getConfig().content || {};
 
-  public openSnackBar(): void {
-    this.translate.get('cookies.message').subscribe(() => {
-      const message = this.translate.instant('cookies.message');
-      const accept = this.translate.instant('cookies.accept');
-      this.acceptCookies
-        .open(message, accept, {})
-        .onAction()
-        .subscribe(() => {
-          if (isPlatformBrowser(this.platformId)) {
-            this.applicationInsightsService.start();
-            localStorage.setItem('cookies_accept', 'accepted');
-          }
-        });
-    });
+        // Override default messages with the translated ones
+        content.header = data['cookie.header'];
+        content.message = data['cookie.message'];
+        content.dismiss = data['cookie.dismiss'];
+        content.allow = data['cookie.allow'];
+        content.deny = data['cookie.deny'];
+        content.link = data['cookie.link'];
+        content.policy = data['cookie.policy'];
+
+        this.ccService.destroy(); // remove previous cookie bar (with default messages)
+
+        const config = this.ccService.getConfig();
+        config.content = content;
+
+        this.ccService.init(config); // update config with translated messages
+      });
   }
 
   @HostListener('window:scroll')
@@ -62,11 +86,39 @@ export class PagesComponent implements OnInit {
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      if (!localStorage.getItem('cookies_accept')) {
-        this.openSnackBar();
-      } else {
-        this.applicationInsightsService.start();
-      }
+      this.ccService.initialize$.subscribe((event) => {
+        switch (event.status) {
+          case 'allow':
+            this.analyticsService.enable();
+            this.applicationInsightsService.start();
+            break;
+
+          case 'deny':
+            this.analyticsService.disable();
+            break;
+
+          default:
+            this.analyticsService.disable();
+            break;
+        }
+      });
+
+      this.ccService.statusChange$.subscribe((event) => {
+        switch (event.status) {
+          case 'allow':
+            this.analyticsService.enable();
+            this.applicationInsightsService.start();
+            break;
+
+          case 'deny':
+            this.analyticsService.disable();
+            break;
+
+          default:
+            this.analyticsService.disable();
+            break;
+        }
+      });
     }
   }
 }

@@ -10,9 +10,15 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ApplicationInsightsService } from './services/application-insights.service';
+import { environment } from 'src/environments/environment';
+import { AnalyticsService } from './services/analytics.service';
 
 import localeDe from '@angular/common/locales/de';
 import localeEn from '@angular/common/locales/en';
+import {
+  NgcCookieConsentConfig,
+  NgcCookieConsentModule
+} from 'ngx-cookieconsent';
 
 registerLocaleData(localeEn, 'en');
 registerLocaleData(localeDe, 'de');
@@ -21,6 +27,36 @@ registerLocaleData(localeDe, 'de');
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
+
+const cookieConfig: NgcCookieConsentConfig = {
+  cookie: {
+    domain: environment.basePath
+  },
+  palette: {
+    popup: {
+      background: '#39424C'
+    },
+    button: {
+      background: '#F4EEED'
+    }
+  },
+  theme: 'block',
+  type: 'info',
+  revokable: false,
+  layout: 'my-custom-layout',
+  layouts: {
+    'my-custom-layout': '{{messagelink}}{{buttons}}'
+  },
+  elements: {
+    buttons: `
+     <a aria-label="deny cookie" tabindex="0" class="cc-btn cc-deny mt-1 p-1">{{deny}}</a>
+     <a aria-label="allow cookie" tabindex="1" class="cc-btn cc-allow mt-1 p-1 ml-0 ml-md-2">{{allow}}</a>
+    `
+  },
+  content: {
+    href: 'https://www.lernsaxinfo.com/pages/privacy'
+  }
+};
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,11 +74,13 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         deps: [HttpClient]
       },
       defaultLanguage: 'de'
-    })
+    }),
+    NgcCookieConsentModule.forRoot(cookieConfig)
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'de' },
-    ApplicationInsightsService
+    ApplicationInsightsService,
+    AnalyticsService
   ],
   bootstrap: [AppComponent]
 })

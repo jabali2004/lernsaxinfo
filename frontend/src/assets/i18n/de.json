@@ -1,66 +1,71 @@
 {
-	"cookies": {
-		"accept": "Akzeptieren",
-		"message": "Diese Seite verwendet Cookies, um die Nutzerfreundlichkeit der Webseite zu verbessen und Zugriffe auf diese Website zu analysieren. Sie geben Ihre Einwilligung zur Verwendung gemäß unserer Datenschutzerklärung, wenn Sie diese Webseite weiterhin nutzen."
-	},
-	"header": {
-		"nav": {
-			"home": "Start",
-			"imprint": "Impressum",
-			"privacy": "Datenschutz",
-			"upcoming_features": "Geplante Funktionen"
-		},
-		"title": "LernSaxInfo"
-	},
-	"home": {
-		"state": {
-			"no_login": "Kein Login",
-			"offline": "Offline",
-			"online": "Online"
-		}
-	},
-	"pages": {
-		"home": {
-			"buttons": {
-				"reload": "Reload"
-			},
-			"current_state": "Aktueller Status:",
-			"error_history": {
-				"last30Days": "30 Tage",
-				"last7Days": "7 Tage",
-				"lastYear": "1 Jahr",
-				"list_item": {
-					"from": "Von:",
-					"minutes": "Minuten",
-					"single_error": "bis zu 3 Minuten",
-					"time_range": "Zeitraum:",
-					"to": "Bis:",
-					"type": {
-						"login_disabled": "Art: Login deaktiviert",
-						"offline": "Art: Nicht erreichbar"
-					}
-				},
-				"no_items": "In diesem Zeitraum sind keine bekannten Fehler aufgetreten.",
-				"oneDay": "Ein Tag",
-				"title": "Fehlerhistorie"
-			},
-			"last_updated": "Zuletzt aktualisiert:",
-			"link_title": "LernSax Portal",
-			"official_source_disclaimer": "Dies ist keine offizielle Statusseite des LernSax Portals.",
-			"reload_explanation": "Eine Aktualisierung findet automatisch statt.",
-			"short_description": {
-				"first": "Es wird aller drei Minuten der aktuelle Status des LernSax Portals abgefragt.",
-				"second": "Die gesammelten Daten sind als Schätzwerte zu betrachten, da ein Intervall von 3 Minuten keine genaueren Daten zulässt.",
-				"title": "Beschreibung"
-			},
-			"title": "LernSax Status Informationen"
-		},
-		"not-found": {
-			"warning": "Seite konnte nicht gefunden werden!"
-		},
-		"upcoming-features": {
-			"subheader": "Diese Funktionalitäten sind aktuell angedacht.",
-			"title": "Geplante Funktionen"
-		}
-	}
+  "cookie": {
+    "allow": "Alle Erlauben",
+    "deny": "Nicht Erlauben",
+    "dismiss": "Geht klar!",
+    "header": "Es werden Cookies auf dieser Website verwendet!",
+    "link": "Mehr anzeigen",
+    "message": "Diese Seite verwendet Cookies, um die Nutzerfreundlichkeit der Webseite zu verbessen und Zugriffe auf diese Website zu analysieren.",
+    "policy": "Datenschutz"
+  },
+  "header": {
+    "nav": {
+      "home": "Start",
+      "imprint": "Impressum",
+      "privacy": "Datenschutz",
+      "upcoming_features": "Geplante Funktionen"
+    },
+    "title": "LernSaxInfo"
+  },
+  "home": {
+    "state": {
+      "no_login": "Kein Login",
+      "offline": "Offline",
+      "online": "Online"
+    }
+  },
+  "pages": {
+    "home": {
+      "buttons": {
+        "reload": "Reload"
+      },
+      "current_state": "Aktueller Status:",
+      "error_history": {
+        "last30Days": "30 Tage",
+        "last7Days": "7 Tage",
+        "lastYear": "1 Jahr",
+        "list_item": {
+          "from": "Von:",
+          "minutes": "Minuten",
+          "single_error": "bis zu 3 Minuten",
+          "time_range": "Zeitraum:",
+          "to": "Bis:",
+          "type": {
+            "login_disabled": "Art: Login deaktiviert",
+            "offline": "Art: Nicht erreichbar"
+          }
+        },
+        "no_items": "In diesem Zeitraum sind keine bekannten Fehler aufgetreten.",
+        "oneDay": "Ein Tag",
+        "title": "Fehlerhistorie"
+      },
+      "last_updated": "Zuletzt aktualisiert:",
+      "link_title": "LernSax Portal",
+      "official_source_disclaimer": "Dies ist keine offizielle Statusseite des LernSax Portals.",
+      "reload_explanation": "Eine Aktualisierung findet automatisch statt.",
+      "short_description": {
+        "first": "Es wird aller drei Minuten der aktuelle Status des LernSax Portals abgefragt.",
+        "second": "Die gesammelten Daten sind als Schätzwerte zu betrachten, da ein Intervall von 3 Minuten keine genaueren Daten zulässt.",
+        "title": "Beschreibung"
+      },
+      "title": "LernSax Status Informationen"
+    },
+    "not-found": {
+      "warning": "Seite konnte nicht gefunden werden!"
+    },
+    "upcoming-features": {
+      "subheader": "Diese Funktionalitäten sind aktuell angedacht.",
+      "title": "Geplante Funktionen"
+    }
+  }
 }
