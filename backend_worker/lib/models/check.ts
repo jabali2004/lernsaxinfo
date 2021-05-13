@@ -1,5 +1,3 @@
-import { IEntity } from '../services/dataService';
-
 type ICheck = {
   checkId: string;
   isOffline: boolean;

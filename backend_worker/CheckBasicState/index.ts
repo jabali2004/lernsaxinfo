@@ -1,10 +1,8 @@
 import { AzureFunction, Context } from '@azure/functions';
-import { TableQuery } from 'azure-storage';
 import * as puppeteer from 'puppeteer';
 import * as shortid from 'shortid';
 import ICheck from '../lib/models/check';
 import IRawCheck from '../lib/models/raw_check';
-import DataService from '../lib/services/dataService';
 
 const timerTrigger: AzureFunction = async function (
   context: Context,
