@@ -23,7 +23,7 @@ export class PagesComponent implements OnInit {
   private topPosToStartShowing = 100;
 
   constructor(
-    private acceptCookies: MatSnackBar,
+    private snackbar: MatSnackBar,
     private translate: TranslateService,
     private applicationInsightsService: ApplicationInsightsService,
     private ccService: NgcCookieConsentService,
@@ -85,8 +85,20 @@ export class PagesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (!localStorage.getItem('cancel_notification')) {
+      this.translate.get('cancel_service').subscribe((text) => {
+        const confirm = this.translate.instant('confirm');
+        this.snackbar
+          .open(text, confirm)
+          .onAction()
+          .subscribe(() => {
+            localStorage.setItem('cancel_notification', 'shown');
+          });
+      });
+    }
+
     if (isPlatformBrowser(this.platformId)) {
-      this.ccService.initialize$.subscribe((event) => {
+      this.ccService.initialize$.subscribe((event: any) => {
         switch (event.status) {
           case 'allow':
             this.analyticsService.enable();
