@@ -1,4 +1,4 @@
-# LernSaxInfo
+# LernSaxInfo [Eingestellt ab dem 1. Juli]
 > Statuschecker für das LernSax Portal!
 
 ![lernsaxinfo build](https://github.com/jabali2004/lernsaxinfo/workflows/lernsaxinfo%20build/badge.svg)
