@@ -1,4 +1,4 @@
-# LernSaxInfo [Eingestellt ab dem 1. Juli]
+# LernSaxInfo [Service wurde am 1. Juli 2021 eingestellt.]
 > Statuschecker für das LernSax Portal!
 
 ![lernsaxinfo build](https://github.com/jabali2004/lernsaxinfo/workflows/lernsaxinfo%20build/badge.svg)
@@ -57,26 +57,6 @@ Beim Frontend kommt die Angular Prerender Funktion zum Einsatz.
 npm run prerender # Für den lokalen Test
 
 ````
-
-### /backend_functions
-
-*Weitere Infos folgen.*
-
-### /worker_functions
-
-*Weitere Infos folgen.*
-
-<!-- TODO: Detailierte Schritt für Schritt Anleitung hinzufügen. -->
-
-## Produktivumgebung
-
-*Informationen kommen noch.*
-
-<!-- TODO: Infos zur Produktivumgebung hinzufügen. -->
-
-## Geplante Funktionalitäten
-
-*Weitere Informationen kommen noch.*
 
 ## Meta
 
