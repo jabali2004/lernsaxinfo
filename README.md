@@ -7,6 +7,11 @@ LernSaxInfo ist eine inoffizielle Statusseite welche die Erreichbarkeit des Lern
 
 Dieses kleine private Projekt ist innerhalb einer Nacht und Nebel Aktion entstanden. Verbesserungen sind also gern gesehen, da ich aktuell nur wenig Zeit für das kleine Projektchen aufwenden kann.
 
+![image](https://github.com/jabali2004/lernsaxinfo/blob/main/Screenshot%202021-07-02%20074936.png)
+
+![image](https://github.com/jabali2004/lernsaxinfo/blob/main/Screenshot%202021-07-02%20075006.png)
+
+
 ## Softwarestack
 
 Es werden folgende Technologien genutzt:
